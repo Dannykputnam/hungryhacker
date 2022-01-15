@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 import { Form, Button } from 'react-bootstrap';
 
-const FoodForm = ({ id, name, type, desc, rating, addFood, setEdit, updateFood}) => {
-  const [food, setFood] = useState({ name: '', type: '', desc: '', rating: '' })
+const FoodForm = ({ addFood, id, name, desc, rating, setEdit, updateFood}) => {
+  const [food, setFood] = useState({ name: '', desc: '', rating: '' })
 
   useEffect( () => {
     if (id) {
-      setFood({ name, type, desc, rating})
+      setFood({ name, desc, rating})
     }
   }, [])
 
@@ -18,7 +18,7 @@ const FoodForm = ({ id, name, type, desc, rating, addFood, setEdit, updateFood})
   } else {
     addFood(food)
   }
-    setFood({ name: '', type: '', desc: '', rating: '' })
+    setFood({ name: '',  desc: '', rating: '' })
   }
 
   return (
@@ -26,23 +26,23 @@ const FoodForm = ({ id, name, type, desc, rating, addFood, setEdit, updateFood})
       <Form onSubmit={handleSubmit}>
       <label>Restaurant Name:</label>
         <input 
-          name='name' 
+          name="name"
           value={food.name}
           onChange={(e) => setFood({...food, name: e.target.value})}
           required
           placeholder=" Restaurant Name"
         />
-         <label>Food Type:</label>
+         {/* <label>Food Type:</label>
         <input 
-          name='type' 
+          name="type" 
           value={food.type}
           onChange={(e) => setFood({...food, type: e.target.value})}
           required
-          placeholder="Employee #"
-        />
+          placeholder="type"
+        /> */}
         <label>Restaurant Description:</label>
         <textarea
-          name='desc'
+          name="desc"
           value={food.desc}
           onChange={(e) => setFood({...food, desc: e.target.value})}
           required
@@ -50,13 +50,13 @@ const FoodForm = ({ id, name, type, desc, rating, addFood, setEdit, updateFood})
         ></textarea>
          <label>Restaurant rating:</label>
         <input 
-          name='rating' 
+          name= "rating"
           value={food.rating}
           onChange={(e) => setFood({...food, rating: e.target.value})}
           required
           placeholder="rating"
         />
-        <button type='submit'>Submit</button>
+        <Button type="submit" variant="primary" >Submit</Button>
       </Form>
     </>
   )

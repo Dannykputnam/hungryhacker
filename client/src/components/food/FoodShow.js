@@ -3,10 +3,13 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
 import { FoodConsumer } from '../../providers/FoodProvider';
+import FoodForm from './FoodForm'
+import { Button } from 'react-bootstrap'
+
 
 const FoodShow = ({ updateFood, deleteFood }) => {
   const params = useParams();
-  const [food, setFood] = useState({ name: '', type: '', desc: '', rating: '' })
+  const [food, setFood] = useState({ name: '', desc: '', rating: '' })
   const [editing, setEdit] = useState(false)
 
   useEffect( () => {
@@ -15,7 +18,7 @@ const FoodShow = ({ updateFood, deleteFood }) => {
       .catch( err => console.log(err))
   }, [])
 
-  const { name, type, desc, rating, id } = food
+  const { name, desc, rating, id } = food
   return (
     <>
       { editing ? 
@@ -30,14 +33,9 @@ const FoodShow = ({ updateFood, deleteFood }) => {
         :
         <>
           <h1>Id: {params.foodId} {name}</h1>
-          <h3>Type: {type}</h3>
           <h2>Description: {desc}</h2>
           <h3>Rating: {rating}</h3>
-          {/* <h5>Bought:
-            <Moment format='MM/DD/YYYY'>
-              {bought}
-            </Moment> 
-          </h5> */}
+         
           <Button 
             variant="warning" 
             onClick={() => setEdit(true)}
@@ -52,14 +50,14 @@ const FoodShow = ({ updateFood, deleteFood }) => {
           </Button>
         </>
       }
-      <Games foodId={id} />
+    
     </>
   )
 }
 
 const ConnectedFoodShow = (props) => (
   <FoodConsumer>
-    { value => <Foodhow {...props} {...value} /> }
+    { value => <FoodShow {...props} {...value} /> }
   </FoodConsumer>
 )
 
