@@ -16,7 +16,7 @@ const Foods = ({ foods, getAllFoods, addFood }) => {
         <h1>All Foods</h1>
         { adding ?
             <>
-            <FoodForm addFoodForm={addFood} />
+            <FoodForm addFood={addFood} />
             <Button variant="info" onClick={() => setAdding(false)}>Cancel</Button> 
             </>
             :
