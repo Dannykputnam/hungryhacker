@@ -6,7 +6,7 @@ class Api::CoffeesController < ApplicationController
     end
 
     def show
-        render json: @coffees
+        render json: @coffee
     end
 
     def create
@@ -19,7 +19,7 @@ class Api::CoffeesController < ApplicationController
     end
 
     def update
-        if @coffee.update(cofee_params)
+        if @coffee.update(coffee_params)
             render json: @coffee
         else
             render json: { errors: @coffee.errors }, status: :unprocessable_entity
@@ -38,7 +38,7 @@ class Api::CoffeesController < ApplicationController
     end
 
     def set_coffee
-        @coffee = current_user.coffee.find(params[:id])
+        @coffee = current_user.coffees.find(params[:id])
     end
 end
 
