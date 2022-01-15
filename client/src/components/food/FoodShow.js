@@ -26,6 +26,7 @@ const FoodShow = ({ updateFood, deleteFood }) => {
           <FoodForm 
             {...food}
             updateFood={updateFood}
+            setEdit={setEdit}
           />
           <Button variant="warning" onClick={() => setEdit(false)}>Cancel</Button>
           <br />
