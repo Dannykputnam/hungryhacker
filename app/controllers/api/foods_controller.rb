@@ -1,5 +1,5 @@
 class Api::FoodsController < ApplicationController
-  before_action :set_food, only: [:show, :upate, :destroy]
+  before_action :set_food, only: [:show, :update, :destroy]
 
   def index
     render json: current_user.foods
@@ -34,7 +34,7 @@ class Api::FoodsController < ApplicationController
     private
 
     def food_params
-      params.require(:food).permit(:name, :type, :desc, :rating)
+      params.require(:food).permit(:name, :desc, :rating)
     end
 
     def set_food
