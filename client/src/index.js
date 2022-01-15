@@ -6,6 +6,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { initMiddleware } from 'devise-axios';
 import AuthProvider from './providers/AuthProvider';
 import FoodProvider from './providers/FoodProvider';
+import CoffeeProvider from './providers/CoffeeProvider';
 
 initMiddleware();
 
@@ -14,7 +15,9 @@ ReactDOM.render(
     <BrowserRouter>
       <AuthProvider>
         <FoodProvider>
-        <App />
+          <CoffeeProvider>
+            <App />
+          </CoffeeProvider>
         </FoodProvider>
       </AuthProvider>
     </BrowserRouter>
