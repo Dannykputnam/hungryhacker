@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import { FoodConsumer } from '../../foods/FoodProvider';
+import { FoodConsumer } from '../../providers/FoodProvider';
 import FoodList from './FoodList';
 import { Button } from 'react-bootstrap';
-import FoodForm from './Foodform';
+import FoodForm from './FoodForm';
 
 const Foods = ({ foods, getAllFoods, addFood }) => {
     const [adding, setAdding] = useState(false)
@@ -16,7 +16,7 @@ const Foods = ({ foods, getAllFoods, addFood }) => {
         <h1>All Foods</h1>
         { adding ?
             <>
-            <FoodForm addFoodßßForm={addFoodform} />
+            <FoodForm addFoodForm={addFood} />
             <Button variant="info" onClick={() => setAdding(false)}>Cancel</Button> 
             </>
             :

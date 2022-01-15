@@ -17,7 +17,7 @@ const FoodForm = ({ id, name, type, desc, rating, addFood, setEdit, updateFood})
   } else {
     addFood(food)
   }
-    setWorker({ name: '', type: '', desc: '', rating: '' })
+    setFood({ name: '', type: '', desc: '', rating: '' })
   }
 
   return (

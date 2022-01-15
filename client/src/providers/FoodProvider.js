@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 export const FoodContext = React.createContext();
-export const FoodConsumer = FormContext.Consumer;
+export const FoodConsumer = FoodContext.Consumer;
 
 const FoodProvider = ({ children }) => {
   const [foods, setFoods] = useState([])
