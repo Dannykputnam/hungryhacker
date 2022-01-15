@@ -2,15 +2,17 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
+import { Button } from 'react-bootstrap';
 import { CoffeeConsumer } from '../../providers/CoffeeProvider';
+import CoffeeForm from './CoffeeForm';
 
-const CoffeeShow = ({ updateCofee, deleteCoffee }) => {
+const CoffeeShow = ({ updateCoffee, deleteCoffee }) => {
   const params = useParams();
   const [coffee, setCoffee] = useState({ name: '', desc: '', rating: '' })
   const [editing, setEdit] = useState(false)
 
   useEffect( () => {
-    axios.get(`/api/coffees/${params.foodId}`)
+    axios.get(`/api/coffees/${params.coffeeId}`)
       .then( res => setCoffee(res.data))
       .catch( err => console.log(err))
   }, [])
@@ -30,7 +32,6 @@ const CoffeeShow = ({ updateCofee, deleteCoffee }) => {
         :
         <>
           <h1>Id: {params.coffeeId} {name}</h1>
-          <h3>Type: {type}</h3>
           <h2>Description: {desc}</h2>
           <h3>Rating: {rating}</h3>
           <Button 
@@ -54,7 +55,7 @@ const CoffeeShow = ({ updateCofee, deleteCoffee }) => {
 
 const ConnectedCoffeeShow = (props) => (
   <CoffeeConsumer>
-    { value => <Coffeehow {...props} {...value} /> }
+    { value => <CoffeeShow {...props} {...value} /> }
   </CoffeeConsumer>
 )
 

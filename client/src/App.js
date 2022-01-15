@@ -9,6 +9,8 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 import Foods from './components/food/Foods';
 import Profile from './components/auth/Profile';
 import FoodShow from './components/food/FoodShow';
+import Coffees from './components/coffee/Coffees';
+import CoffeeShow from './components/coffee/CoffeeShow';
 
 const App = () => (
   <>
