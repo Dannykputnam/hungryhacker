@@ -10,4 +10,6 @@ class User < ActiveRecord::Base
   include DeviseTokenAuth::Concerns::User
 
   has_many :foods, dependent: :destroy
+  has_many :coffees, dependent: :destroy
+  has_many :bars, dependent: :destroy
 end

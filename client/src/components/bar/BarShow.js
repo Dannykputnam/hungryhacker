@@ -3,35 +3,35 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
 import { Button } from 'react-bootstrap';
-import { CoffeeConsumer } from '../../providers/CoffeeProvider';
-import CoffeeForm from './CoffeeForm';
+import { BarConsumer } from '../../providers/BarProvider';
+import BarForm from './BarForm';
 
-const CoffeeShow = ({ updateCoffee, deleteCoffee }) => {
+const BarShow = ({ updateBar, deleteBar }) => {
   const params = useParams();
-  const [coffee, setCoffee] = useState({ name: '', desc: '', rating: '' })
+  const [bar, setBar] = useState({ name: '', desc: '', rating: '' })
   const [editing, setEdit] = useState(false)
 
   useEffect( () => {
-    axios.get(`/api/coffees/${params.coffeeId}`)
-      .then( res => setCoffee(res.data))
+    axios.get(`/api/bars/${params.barId}`)
+      .then( res => setBar(res.data))
       .catch( err => console.log(err))
   }, [])
 
-  const { name, desc, rating, id } = coffee
+  const { name, desc, rating, id } = bar
   return (
     <>
       { editing ? 
         <>
-          <CoffeeForm 
-            {...coffee}
-            updateCoffee={updateCoffee}
+          <BarForm 
+            {...bar}
+            updateBar={updateBar}
           />
           <Button variant="warning" onClick={() => setEdit(false)}>Cancel</Button>
           <br />
         </>
         :
         <>
-          <h1>Id: {params.coffeeId} {name}</h1>
+          <h1>Id: {params.barId} {name}</h1>
           <h2>Description: {desc}</h2>
           <h3>Rating: {rating}</h3>
           <Button 
@@ -42,21 +42,21 @@ const CoffeeShow = ({ updateCoffee, deleteCoffee }) => {
           </Button>
           <Button 
             variant="danger"
-            onClick={() => deleteCoffee(id)}
+            onClick={() => deleteBar(id)}
           >
             Delete
           </Button>
         </>
       }
-      {/* <Games coffeeId={id} /> */}
+      {/* <Games barId={id} /> */}
     </>
   )
 }
 
-const ConnectedCoffeeShow = (props) => (
-  <CoffeeConsumer>
-    { value => <CoffeeShow {...props} {...value} /> }
-  </CoffeeConsumer>
+const ConnectedBarShow = (props) => (
+  <BarConsumer>
+    { value => <BarShow {...props} {...value} /> }
+  </BarConsumer>
 )
 
-export default ConnectedCoffeeShow;
+export default ConnectedBarShow;

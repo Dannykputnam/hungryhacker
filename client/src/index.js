@@ -7,6 +7,7 @@ import { initMiddleware } from 'devise-axios';
 import AuthProvider from './providers/AuthProvider';
 import FoodProvider from './providers/FoodProvider';
 import CoffeeProvider from './providers/CoffeeProvider';
+import BarProvider from './providers/BarProvider';
 
 initMiddleware();
 
@@ -16,7 +17,9 @@ ReactDOM.render(
       <AuthProvider>
         <FoodProvider>
           <CoffeeProvider>
-            <App />
+            <BarProvider>
+              <App />
+            </BarProvider>
           </CoffeeProvider>
         </FoodProvider>
       </AuthProvider>
