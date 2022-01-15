@@ -11,6 +11,8 @@ import Profile from './components/auth/Profile';
 import FoodShow from './components/food/FoodShow';
 import Coffees from './components/coffee/Coffees';
 import CoffeeShow from './components/coffee/CoffeeShow';
+import Bars from './components/bar/Bars';
+import BarShow from './components/bar/BarShow';
 
 const App = () => (
   <>
@@ -25,6 +27,9 @@ const App = () => (
             <Route path='/foods/:foodId' element={<FoodShow />} />
             <Route path='/coffees' element={<Coffees />} />
             <Route path='/coffees/:coffeeId' element={<CoffeeShow />} />
+            <Route path='/bars' element={<Bars />} />
+            <Route path='./bars/:barId' element={<BarShow />} />
+          
             
           </Route>
           <Route path='/login' element={<Login />} />ß
