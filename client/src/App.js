@@ -7,6 +7,8 @@ import Navbar from './components/shared/Navbar';
 import FetchUser from './components/auth/FetchUser';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import Foods from './components/food/Foods';
+import Profile from './components/auth/Profile';
+import FoodShow from './components/food/FoodShow';
 
 const App = () => (
   <>
@@ -16,7 +18,9 @@ const App = () => (
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/' element={<ProtectedRoute />}>
-            <Route path='/' element={<Foods />} />ßß
+            <Route path='/profile' element={<Profile />} />
+            <Route path='/foods' element={<Foods />} />
+            <Route path='/foods/:foodId' element={<FoodShow />} />
             
           </Route>
           <Route path='/login' element={<Login />} />ß
