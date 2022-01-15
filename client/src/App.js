@@ -6,6 +6,7 @@ import Nomatch from './components/shared/Nomatch';
 import Navbar from './components/shared/Navbar';
 import FetchUser from './components/auth/FetchUser';
 import ProtectedRoute from './components/auth/ProtectedRoute';
+import Foods from './components/food/Foods';
 
 const App = () => (
   <>
@@ -15,9 +16,10 @@ const App = () => (
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/' element={<ProtectedRoute />}>
+            <Route path='/' element={<Foods />} />ßß
             
           </Route>
-          <Route path='/login' element={<Login />} />
+          <Route path='/login' element={<Login />} />ß
           <Route path='/register' element={<Register />} />
           <Route path='/*' element={<Nomatch />} />
         </Routes>
