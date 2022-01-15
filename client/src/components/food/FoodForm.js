@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Form, Button } from 'react-bootstrap';
 
 const FoodForm = ({ id, name, type, desc, rating, addFood, setEdit, updateFood}) => {
   const [food, setFood] = useState({ name: '', type: '', desc: '', rating: '' })
@@ -22,7 +23,7 @@ const FoodForm = ({ id, name, type, desc, rating, addFood, setEdit, updateFood})
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit}>
       <label>Restaurant Name:</label>
         <input 
           name='name' 
@@ -56,7 +57,7 @@ const FoodForm = ({ id, name, type, desc, rating, addFood, setEdit, updateFood})
           placeholder="rating"
         />
         <button type='submit'>Submit</button>
-      </form>
+      </Form>
     </>
   )
 }
