@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Form, Button } from 'react-bootstrap';
+// import FoodForm from './FoodForm';
 
 const FoodForm = ({ addFood, id, name, desc, rating, setEdit, updateFood}) => {
   const [food, setFood] = useState({ name: '', desc: '', rating: '' })
