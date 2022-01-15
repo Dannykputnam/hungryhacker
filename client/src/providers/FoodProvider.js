@@ -32,7 +32,7 @@ const FoodProvider = ({ children }) => {
           return f
         })
         setFoods(newUpdatedFoods)
-        navigate('/foods')
+        navigate(`/foods`)
       })
       .catch( err => console.log(err) )
   }

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 const CoffeeForm = ({ id, name, desc, rating, addCoffee, setEdit, updateCoffee}) => {
-  const [food, setCoffee] = useState({ name: '', desc: '', rating: '' })
+  const [coffee, setCoffee] = useState({ name: '', desc: '', rating: '' })
 
   useEffect( () => {
     if (id) {
@@ -12,7 +12,7 @@ const CoffeeForm = ({ id, name, desc, rating, addCoffee, setEdit, updateCoffee})
   const handleSubmit = (e) => {
     e.preventDefault()
     if (id) {
-    updateCoffee(id, Coffee)
+    updateCoffee(id, coffee)
     setEdit(false)
   } else {
     addCoffee(coffee)
@@ -27,7 +27,7 @@ const CoffeeForm = ({ id, name, desc, rating, addCoffee, setEdit, updateCoffee})
         <input 
           name='name' 
           value={coffee.name}
-          onChange={(e) => setcoffee({...coffee, name: e.target.value})}
+          onChange={(e) => setCoffee({...coffee, name: e.target.value})}
           required
           placeholder="Coffee Shop Name"
         />
